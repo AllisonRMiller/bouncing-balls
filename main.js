@@ -47,10 +47,12 @@ evilCircle.prototype.constructor = evilCircle;
 // define ball draw method
 
 Ball.prototype.draw = function () {
-    ctx.beginPath();
-    ctx.fillStyle = this.color;
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx.font="10px FontAwesome";
+    ctx.fillText("\f78e");
+    // ctx.beginPath();
+    // ctx.fillStyle = this.color;
+    // ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    // ctx.fill();
 };
 // bounces balls off "walls"
 Ball.prototype.update = function () {
