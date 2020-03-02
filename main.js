@@ -6,6 +6,7 @@ const ctx = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
+
 // function to generate random number
 
 function random(min, max) {
@@ -144,12 +145,20 @@ evilCircle.prototype.collisionDetect = function () {
 
             if (distance < this.size + balls[j].size) {
                 balls[j].exists = this.exists = false;
+                ballCount--;
             }
         }
     }
 }
 
 let balls = [];
+
+
+
+function score (){
+    document.getElementById("score").innerHTML="Ball count:" + ballCount;
+
+}
 
 while (balls.length < 25) {
     let size = random(10, 20);
@@ -167,13 +176,14 @@ while (balls.length < 25) {
 
     balls.push(ball);
 }
-
+var ballCount = balls.length;
 let evilPlayer = new evilCircle(
     random(0,width), 
     random(0,height), 
     true);
 evilPlayer.setControls();
 
+var ballCount = balls.length;
 
 function loop() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
@@ -187,7 +197,7 @@ function loop() {
         }
 
     }
-
+    score();
     evilPlayer.draw();
     evilPlayer.checkBounds();
     evilPlayer.collisionDetect();
@@ -196,3 +206,5 @@ function loop() {
 }
 
 loop();
+
+
