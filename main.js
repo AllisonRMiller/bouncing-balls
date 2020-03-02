@@ -154,11 +154,22 @@ evilCircle.prototype.collisionDetect = function () {
 let balls = [];
 
 
-
 function score (){
     document.getElementById("score").innerHTML="Ball count:" + ballCount;
 
 }
+
+// function lvlUp(){
+//     //if score >= 21 then evil size =10
+//     //else if score <=20 && score >=16 then evil size =12
+//     //else if score <=15 && score >=11 then evil size =14
+//     //else if score <= 10 && score >= 6 then evil size =16
+//     //else if score <= 5 then evil size = 18
+//     if (ballCount>=21) {
+        
+//     }
+// }
+
 
 while (balls.length < 25) {
     let size = random(10, 20);
