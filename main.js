@@ -34,7 +34,7 @@ function evilCircle(x, y, exists, color, size) {
     Shape.call(this, x, y, 20, 20, exists);
 
     this.color = "rgb(255,255,255)";
-    this.size = 10;
+    this.size = 20;
 }
 
 
@@ -47,10 +47,11 @@ evilCircle.prototype.constructor = evilCircle;
 // define ball draw method
 
 Ball.prototype.draw = function () {
-    ctx.font="10px FontAwesome";
-    ctx.fillText("\f78e");
+
+    ctx.font = this.size+"px FontAwesome";
+    ctx.fillStyle = this.color;
+    ctx.fillText("\uf06c", this.x, this.y, this.size);
     // ctx.beginPath();
-    // ctx.fillStyle = this.color;
     // ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     // ctx.fill();
 };
@@ -71,28 +72,33 @@ Ball.prototype.update = function () {
     // if ((this.y - this.size) <= 0) {
     //     this.velY = -(this.velY);
     // }
-if(this.x>=width){
-this.x=0;}
-else if(this.x<=0){
-    this.x=width;
-}
-if(this.y>=height){
-    this.y=0;
-}
-else if(this.y<=0){
-    this.y=height;
-}
+    if (this.x >= width) {
+        this.x = 0;
+    }
+    else if (this.x <= 0) {
+        this.x = width;
+    }
+    if (this.y >= height) {
+        this.y = 0;
+    }
+    else if (this.y <= 0) {
+        this.y = height;
+    }
     this.x += this.velX;
     this.y += this.velY;
 }
 
 //define evilCircle draw method
 evilCircle.prototype.draw = function () {
-    ctx.beginPath();
-    ctx.strokeStyle = this.color;
-    ctx.lineWidth = 3;
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-    ctx.stroke();;
+
+    ctx.font = this.size+"px FontAwesome";
+    ctx.fillStyle = this.color;
+    ctx.fillText("\uf520", this.x, this.y, this.size);
+    // ctx.beginPath();
+    // ctx.strokeStyle = this.color;
+    // ctx.lineWidth = 3;
+    // ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    // ctx.stroke();;
 };
 
 //checks evilCircle position re:"walls"
@@ -112,17 +118,18 @@ evilCircle.prototype.checkBounds = function () {
     // if ((this.y - this.size) <= 0) {
     //     this.Y = -(this.size);
     // }
-    if(this.x>=width){
-        this.x=0;}
-        else if(this.x<=0){
-            this.x=width;
-        }
-        if(this.y>=height){
-            this.y=0;
-        }
-        else if(this.y<=0){
-            this.y=height;
-        }
+    if (this.x >= width) {
+        this.x = 0;
+    }
+    else if (this.x <= 0) {
+        this.x = width;
+    }
+    if (this.y >= height) {
+        this.y = 0;
+    }
+    else if (this.y <= 0) {
+        this.y = height;
+    }
 }
 
 
@@ -175,22 +182,12 @@ evilCircle.prototype.collisionDetect = function () {
 
 let balls = [];
 
-
-function score (){
-    document.getElementById("score").innerHTML="Ball count:" + ballCount;
+//Draws score on screen
+function score() {
+    document.getElementById("score").innerHTML = "Ball count:" + ballCount;
 
 }
 
-// function lvlUp(){
-//     //if score >= 21 then evil size =10
-//     //else if score <=20 && score >=16 then evil size =12
-//     //else if score <=15 && score >=11 then evil size =14
-//     //else if score <= 10 && score >= 6 then evil size =16
-//     //else if score <= 5 then evil size = 18
-//     if (ballCount>=21) {
-        
-//     }
-// }
 
 
 while (balls.length < 25) {
@@ -211,8 +208,8 @@ while (balls.length < 25) {
 }
 var ballCount = balls.length;
 let evilPlayer = new evilCircle(
-    random(0,width), 
-    random(0,height), 
+    random(0, width),
+    random(0, height),
     true);
 evilPlayer.setControls();
 
