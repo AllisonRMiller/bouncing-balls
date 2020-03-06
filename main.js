@@ -56,22 +56,32 @@ Ball.prototype.draw = function () {
 };
 // bounces balls off "walls"
 Ball.prototype.update = function () {
-    if ((this.x + this.size) >= width) {
-        this.velX = -(this.velX);
-    }
+    // if ((this.x + this.size) >= width) {
+    //     this.X = -(this.velX);
+    // }
 
-    if ((this.x - this.size) <= 0) {
-        this.velX = -(this.velX);
-    }
+    // if ((this.x - this.size) <= 0) {
+    //     this.velX = -(this.velX);
+    // }
 
-    if ((this.y + this.size) >= height) {
-        this.velY = -(this.velY);
-    }
+    // if ((this.y + this.size) >= height) {
+    //     this.velY = -(this.velY);
+    // }
 
-    if ((this.y - this.size) <= 0) {
-        this.velY = -(this.velY);
-    }
-
+    // if ((this.y - this.size) <= 0) {
+    //     this.velY = -(this.velY);
+    // }
+if(this.x>=width){
+this.x=0;}
+else if(this.x<=0){
+    this.x=width;
+}
+if(this.y>=height){
+    this.y=0;
+}
+else if(this.y<=0){
+    this.y=height;
+}
     this.x += this.velX;
     this.y += this.velY;
 }
@@ -87,22 +97,32 @@ evilCircle.prototype.draw = function () {
 
 //checks evilCircle position re:"walls"
 evilCircle.prototype.checkBounds = function () {
-    if ((this.x + this.size) >= width) {
-        this.X = -(this.size);
-    }
+    // if ((this.x + this.size) >= width) {
+    //     this.X = -(this.size);
+    // }
 
-    if ((this.x - this.size) <= 0) {
-        this.X = -(this.size);
-    }
+    // if ((this.x - this.size) <= 0) {
+    //     this.X = -(this.size);
+    // }
 
-    if ((this.y + this.size) >= height) {
-        this.Y = -(this.size);
-    }
+    // if ((this.y + this.size) >= height) {
+    //     this.Y = -(this.size);
+    // }
 
-    if ((this.y - this.size) <= 0) {
-        this.Y = -(this.size);
-    }
-
+    // if ((this.y - this.size) <= 0) {
+    //     this.Y = -(this.size);
+    // }
+    if(this.x>=width){
+        this.x=0;}
+        else if(this.x<=0){
+            this.x=width;
+        }
+        if(this.y>=height){
+            this.y=0;
+        }
+        else if(this.y<=0){
+            this.y=height;
+        }
 }
 
 
